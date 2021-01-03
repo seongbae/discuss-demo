@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5847422e-d5b5-4e93-a956-46888ea35008" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/AuthenticationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/AuthenticationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/EmailVerificationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/EmailVerificationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/ExampleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/PasswordConfirmationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/PasswordConfirmationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/PasswordResetTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/PasswordResetTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/RegistrationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests_bak/RegistrationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/ThreadSubscriptionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ThreadSubscriptionTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +214,8 @@
       <updated>1608154555544</updated>
       <workItem from="1608154557135" duration="31295000" />
       <workItem from="1609635809496" duration="809000" />
-      <workItem from="1609636657216" duration="879000" />
+      <workItem from="1609636657216" duration="929000" />
+      <workItem from="1609685242515" duration="4671000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,10 @@ use App\Models\User;
 use Faker\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Notification;
+use Seongbae\Discuss\Events\NewThread;
 use Seongbae\Discuss\Models\Subscription;
+use Seongbae\Discuss\Notifications\NewThreadNotification;
 use Tests\TestCase;
 use Carbon\Carbon;
 use Seongbae\Discuss\Models\Channel;
@@ -57,6 +60,8 @@ class ThreadSubscriptionTest extends TestCase
 
     }
 
+
+
     /**
      * A basic feature test example.
      *
@@ -97,6 +102,39 @@ class ThreadSubscriptionTest extends TestCase
      *
      * @return void
      */
+    public function test_user_receives_notification_from_channel()
+    {
+        $this->channel->attachSubscriber($this->user);
+
+        $userB = User::factory()->create();
+        $this->channel->attachSubscriber($userB);
+
+        $userC = User::factory()->create();
+
+        Notification::fake();
+
+        $event = new NewThread($this->thread);
+        event($event);
+
+        $notification = new NewThreadNotification($this->thread);
+        $userB->notify($notification);
+
+        Notification::assertNotSentTo(
+            $userC, NewThreadNotification::class
+        );
+
+        Notification::assertSentTo(
+            $userB,
+            NewThreadNotification::class
+        );
+
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
     public function test_user_can_unsubscribe_from_channel()
     {
         $this->actingAs($this->user);
@@ -109,4 +147,6 @@ class ThreadSubscriptionTest extends TestCase
 
         $this->assertCount(0, Subscription::all());
     }
+
+
 }

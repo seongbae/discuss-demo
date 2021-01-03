@@ -6,6 +6,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use Seongbae\Discuss\Events\NewReply;
+use Seongbae\Discuss\Events\NewThread;
+use Seongbae\Discuss\Listeners\NotifyChannelSubscribers;
+use Seongbae\Discuss\Listeners\NotifyThreadSubscribers;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        NewThread::class => [
+            NotifyChannelSubscribers::class,
+        ],
+        NewReply::class => [
+            NotifyThreadSubscribers::class,
+        ]
     ];
 
     /**
